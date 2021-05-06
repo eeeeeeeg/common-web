@@ -2,7 +2,9 @@
   <div style="display:flex;flex-direction:row;">
       <Menu></Menu>
       <el-container>
-        <el-header>XX管理系统</el-header>
+        <el-header>
+          xxx
+        </el-header>
         <el-main>
           <!-- <router-view/> -->
         </el-main>
