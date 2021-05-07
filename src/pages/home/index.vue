@@ -18,6 +18,10 @@
             prop="address"
             label="地址">
             </el-table-column>
+            <el-table-column
+            prop="task"
+            label="任务">
+            </el-table-column>
         </el-table>
     </div>
 </template>
@@ -27,6 +31,7 @@
 </style>
 
 <script>
+  
   export default {
     name:'Layout',
     data() {
@@ -35,18 +40,22 @@
         date: '2016-05-02',
         name: '王小虎',
         address: '上海市普陀区金沙江路 1518 弄',
+        task:'js runall'
         }, {
         date: '2016-05-04',
         name: '王小虎',
-        address: '上海市普陀区金沙江路 1518 弄'
+        address: '上海市普陀区金沙江路 1518 弄',
+        task:'	js runall'
         }, {
         date: '2016-05-01',
         name: '王小虎',
         address: '上海市普陀区金沙江路 1518 弄',
+        task:'	js runall'
         }, {
         date: '2016-05-03',
         name: '王小虎',
-        address: '上海市普陀区金沙江路 1518 弄'
+        address: '上海市普陀区金沙江路 1518 弄',
+        task:'	js runall'
         }]
       };
     },
