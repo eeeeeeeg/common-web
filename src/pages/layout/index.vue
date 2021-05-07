@@ -6,7 +6,9 @@
           xxx 管理系统
         </el-header>
         <el-main>
-          <router-view/>
+          <transition name="el-zoom-in-top">
+            <router-view/>
+          </transition>
         </el-main>
         <el-footer>版权所有</el-footer>
       </el-container>
