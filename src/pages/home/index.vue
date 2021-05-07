@@ -1,66 +1,77 @@
 <template>
-  <div style="display:flex;flex-direction:row;">
-      <Menu></Menu>
-      <el-container>
-        <el-header>
-          xxx
-        </el-header>
-        <el-main>
-          <!-- <router-view/> -->
-        </el-main>
-        <el-footer>版权所有</el-footer>
-      </el-container>
-  </div>
+    <div id="layout">
+        <el-table
+            :data="tableData"
+            style="width: 100%"
+            :row-class-name="tableRowClassName">
+            <el-table-column
+            prop="date"
+            label="日期"
+            width="180">
+            </el-table-column>
+            <el-table-column
+            prop="name"
+            label="姓名"
+            width="180">
+            </el-table-column>
+            <el-table-column
+            prop="address"
+            label="地址">
+            </el-table-column>
+        </el-table>
+    </div>
 </template>
+ 
+<style>
+
+</style>
 
 <script>
-import Menu from '../menu/index'
-
-export default {
-  name: 'ProcessDomainList',
-  data(){
-        return {
-            
-        }
+  export default {
+    name:'Layout',
+    data() {
+      return {
+        tableData: [{
+        date: '2016-05-02',
+        name: '王小虎',
+        address: '上海市普陀区金沙江路 1518 弄',
+        }, {
+        date: '2016-05-04',
+        name: '王小虎',
+        address: '上海市普陀区金沙江路 1518 弄'
+        }, {
+        date: '2016-05-01',
+        name: '王小虎',
+        address: '上海市普陀区金沙江路 1518 弄',
+        }, {
+        date: '2016-05-03',
+        name: '王小虎',
+        address: '上海市普陀区金沙江路 1518 弄'
+        }]
+      };
     },
-  components: {
-    Menu
-  },
-  methods: {
-
-  },
-  created() {
-
-  },
-  filters:{
+    methods: {
+        tableRowClassName({row, rowIndex}) {
+            console.log(row)
+            if (rowIndex === 1) {
+            return 'warning-row';
+            } else if (rowIndex === 3) {
+            return 'success-row';
+            }
+            return '';
+        }
+    }
   }
-}
 </script>
-
 <style scoped>
-.el-container {
-  height: 100%;
-}
-.el-header,
-.el-footer {
-  background-color: #b3c0d1;
-  color: #333;
-  text-align: center;
-  height: 60px;
-}
-.el-aside {
-  background-color: #d3dce6;
-  color: #333;
-  text-align: center;
-  height: 100%;
-}
-.el-main {
-  background-color: #e9eef3;
-  color: #333;
-  text-align: center;
-  height: calc(100vh - 120px);
-}
-.el-menu {
-  background-color: #d3dce6;
-}
+    #layout{
+        height: calc(100vh - 60px);
+    }
+    .el-table .warning-row {
+        background: oldlace;
+    }
+
+    .el-table .success-row {
+        background: #f0f9eb;
+    }
 </style>

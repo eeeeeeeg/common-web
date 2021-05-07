@@ -1,10 +1,16 @@
 <template>
 <div id="menu">
-<el-radio-group v-model="isCollapse" style="margin-bottom: 20px;position:absolute;left:200px;transition: .5s all;" :style="{left:isCollapse ? '64px' : '200px'}">
-  <el-radio-button :label="false">展开</el-radio-button>
-  <el-radio-button :label="true">收起</el-radio-button>
-</el-radio-group>
-<el-menu default-active="1-4-1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="isCollapse">
+<div class="collapse_btn" @click="isCollapse = !isCollapse">
+  <i class="el-icon-s-unfold" v-if="isCollapse"></i>
+  <i class="el-icon-s-fold" v-else></i>
+</div>
+<el-menu 
+  router 
+  :default-active="$route.path"
+  class="el-menu-vertical-demo" 
+  @open="handleOpen" 
+  @close="handleClose" 
+  :collapse="isCollapse">
   <el-submenu index="1">
     <template slot="title">
       <i class="el-icon-location"></i>
@@ -12,8 +18,8 @@
     </template>
     <el-menu-item-group>
       <span slot="title">分组一</span>
-      <el-menu-item index="1-1">选项1</el-menu-item>
-      <el-menu-item index="1-2">选项2</el-menu-item>
+      <el-menu-item index="/home">表单页面</el-menu-item>
+      <el-menu-item index="/layout">布局展示</el-menu-item>
     </el-menu-item-group>
     <el-menu-item-group title="分组2">
       <el-menu-item index="1-3">选项3</el-menu-item>
@@ -48,6 +54,7 @@
         width: 64px;
         height: calc(100vh - 60px);
     }
+    
 </style>
 
 <script>
@@ -71,5 +78,26 @@
 <style scoped>
     #menu{
         position: relative;
+    }
+    .collapse_btn {
+      z-index: 1;
+      position: absolute;
+      bottom: 10px;
+      right: 5px;
+      width: 40px;
+      height: 40px;
+      border-radius: 20px;
+      box-shadow: 0px 0px 6px #ccc;
+      background-color: #fff;
+      transition: .2s all;
+      cursor: pointer;
+      color: rgba(0, 102, 153, 1);
+      text-align: center;
+      line-height: 40px;
+      
+    }
+    .el-icon-s-unfold,
+    .el-icon-s-fold {
+      font-size: 20px;
     }
 </style>
